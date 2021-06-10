@@ -41,14 +41,14 @@
               items: [
                 ['Default', 'default-list'],
                 ['Maroon', 'maroon'],
-                ['Light Smoke Mode', 'light-smokemode'],
-                ['Smoke Mode', 'smokemode'],
-                ['Dark Mode', 'darkmode'],
-                ['Dark Mode Gold', 'darkmode-gold'],
+                ['Gray 1', 'light-smokemode'],
+                ['Gray 2', 'smokemode'],
+                ['Gray 7', 'darkmode'],
+                ['Gray 7 Gold Bullet', 'darkmode-gold'],
                 ['Icon list', 'icn-default'],
                 ['Icon list Maroon', 'icn-maroon'],
-                ['Icon list Dark Mode', 'icn-darkmode'],
-                ['Icon list Dark Mode Gold', 'icn-darkmode-gold']
+                ['Icon list Gray 7', 'icn-darkmode'],
+                ['Icon list Gray 7 Gold', 'icn-darkmode-gold']
               ],
               setup: function (element) {
                 // Always default to default.
@@ -57,6 +57,11 @@
               commit: function (element) {
                 // Get select value.
                 var value = this.getValue();
+                // Alert the user that they cannot theme lists within a list.
+                if ( element.$.parentElement.nodeName === 'LI' ) {
+                  editor.showNotification( 'Cannot apply more than one style to multi level list' );
+                  return;
+                }
 
                 if (value == '') {
                   value = 'default-list';
@@ -175,21 +180,21 @@
                 items: [
                   ['Default', 'default-list'],
                   ['Maroon', 'maroon'],
-                  ['Light Smoke Mode', 'light-smokemode'],
-                  ['Smoke Mode', 'smokemode'],
-                  ['Dark Mode', 'darkmode'],
-                  ['Dark Mode Gold', 'darkmode-gold'],
+                  ['Gray 1', 'light-smokemode'],
+                  ['Gray 2', 'smokemode'],
+                  ['Gray 7', 'darkmode'],
+                  ['Gray 7 Gold', 'darkmode-gold'],
                   ['Step List Default', 'stp-default'],
                   ['Step List Gold Counter', 'stp-gold-counter'],
                   ['Step List Maroon Counter', 'stp-maroon-counter'],
-                  ['Step List Smokemode', 'stp-smokemode'],
-                  ['Step List Smokemode Gold Counter', 'stp-smokemode-gold'],
-                  ['Step List Smokemode Maroon Counter', 'stp-smokemode-maroon'],
-                  ['Step List Light Smokemode', 'stp-lightsmokemode'],
-                  ['Step List Light Smokemode Gold Counter', 'stp-lightsmokemode-gold'],
-                  ['Step List Light Smokemode Maroon Counter', 'stp-lightsmokemode-maroon'],
-                  ['Step List Darkmode', 'stp-darkmode'],
-                  ['Step List Darkmode Gold Counter', 'stp-darkmode-gold']
+                  ['Step List Gray 2', 'stp-smokemode'],
+                  ['Step List Gray 2 Gold Counter', 'stp-smokemode-gold'],
+                  ['Step List Gray 2 Maroon Counter', 'stp-smokemode-maroon'],
+                  ['Step List Gray 1', 'stp-lightsmokemode'],
+                  ['Step List Gray 1 Gold Counter', 'stp-lightsmokemode-gold'],
+                  ['Step List Gray 1 Maroon Counter', 'stp-lightsmokemode-maroon'],
+                  ['Step List Gray 7', 'stp-darkmode'],
+                  ['Step List Gray 7 Gold Counter', 'stp-darkmode-gold']
                 ],
                 setup: function (element) {
                   // Always default to default.
@@ -198,6 +203,12 @@
                 commit: function (element) {
                   // Get select value.
                   var value = this.getValue();
+
+                  // Alert the user that they cannot theme lists within a list.
+                  if ( element.$.parentElement.nodeName === 'LI' ) {
+                    editor.showNotification( 'Cannot apply more than one style to multi level list' );
+                    return;
+                  }
 
                   if (value == '') {
                     value = 'default-list';
