@@ -35,7 +35,7 @@ CKEDITOR.plugins.add('websparkhighlightedheading', {
                 // Get heading type
                 this.data.headingtype = jQuery('h1,h2,h3,h4,h5', $el).prop("tagName").toLowerCase();
                 // Get text
-                this.data.content = jQuery('span', $el).text();;
+                this.data.content = editor.getSelection().getSelectedText();
                 
             },
 
