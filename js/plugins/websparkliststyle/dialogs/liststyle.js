@@ -228,24 +228,23 @@
                     element.addClass('uds-list');
                     element.addClass('uds-steplist');
 
-
                     // Remove NLR clases.
                     if (value == 'stp-default') {
                       // Remove NLR classes.
-                      element.remove('uds-steplist-gold');
-                      element.remove('uds-steplist-maroon');
-                      element.remove('smokemode');
-                      element.remove('light-smokemode');
-                      element.remove('darkmode');
-                      element.remove('maroon');
+                      element.removeClass('uds-steplist-gold');
+                      element.removeClass('uds-steplist-maroon');
+                      element.removeClass('smokemode');
+                      element.removeClass('light-smokemode');
+                      element.removeClass('darkmode');
+                      element.removeClass('maroon');
                     }
                     // Default gold.
                     if (value == 'stp-gold-counter') {
                       // Remove NLR classes.
-                      element.remove('uds-steplist-maroon');
-                      element.remove('smokemode');
-                      element.remove('light-smokemode');
-                      element.remove('darkmode');
+                      element.removeClass('uds-steplist-maroon');
+                      element.removeClass('smokemode');
+                      element.removeClass('light-smokemode');
+                      element.removeClass('darkmode');
 
                       // Add classes.
                       element.addClass('uds-steplist-gold');
