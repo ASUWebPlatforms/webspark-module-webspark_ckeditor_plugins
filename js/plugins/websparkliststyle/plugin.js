@@ -54,6 +54,35 @@
         }
         return null;
       } );
+
+
+      editor.on('key', function (event) {
+        // Change the SHIFT+ENTER default ckeditor behaviour.
+        if (event.data.keyCode == 2228237) {
+          var selection = this.getSelection();
+          var element = selection.getStartElement();
+          var list = element.getParent();
+          var ranges = selection.getRanges();
+          // Check if nothing else is selected and the this is an element
+          // from the stepped list.
+          if (ranges[0].collapsed && list.hasClass('uds-steplist')) {
+            // Add the default SHIF+ENTER behaviour.
+            let br = new CKEDITOR.dom.element("br");
+            editor.insertElement(br);
+            // Add a span if the span is not there
+            let span = new CKEDITOR.dom.element("span");
+            // Add the Bogus , otherwise the caret will no go inside.
+            span.appendBogus();
+            editor.insertElement(span);
+            let range = editor.createRange();
+            // Move caret inside span.
+            range.moveToPosition(span, CKEDITOR.POSITION_AFTER_START);
+            range.select();
+            return false;
+          }
+
+         }
+      });
     },
 
   };
