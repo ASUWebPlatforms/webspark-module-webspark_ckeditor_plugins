@@ -43,12 +43,12 @@
                 ['Maroon', 'maroon'],
                 ['Gray 1', 'light-smokemode'],
                 ['Gray 2', 'smokemode'],
-                ['Gray 7', 'darkmode'],
-                ['Gray 7 Gold Bullet', 'darkmode-gold'],
+                ['Black', 'darkmode'],
+                ['Black Gold Bullet', 'darkmode-gold'],
                 ['Icon list', 'icn-default'],
                 ['Icon list Maroon', 'icn-maroon'],
-                ['Icon list Gray 7', 'icn-darkmode'],
-                ['Icon list Gray 7 Gold', 'icn-darkmode-gold']
+                ['Icon list Black', 'icn-darkmode'],
+                ['Icon list Black Gold', 'icn-darkmode-gold']
               ],
               setup: function (element) {
                 // Always default to default.
@@ -182,8 +182,8 @@
                   ['Maroon', 'maroon'],
                   ['Gray 1', 'light-smokemode'],
                   ['Gray 2', 'smokemode'],
-                  ['Gray 7', 'darkmode'],
-                  ['Gray 7 Gold', 'darkmode-gold'],
+                  ['Black', 'darkmode'],
+                  ['Black Gold', 'darkmode-gold'],
                   ['Step List Default', 'stp-default'],
                   ['Step List Gold Counter', 'stp-gold-counter'],
                   ['Step List Maroon Counter', 'stp-maroon-counter'],
@@ -193,8 +193,8 @@
                   ['Step List Gray 1', 'stp-lightsmokemode'],
                   ['Step List Gray 1 Gold Counter', 'stp-lightsmokemode-gold'],
                   ['Step List Gray 1 Maroon Counter', 'stp-lightsmokemode-maroon'],
-                  ['Step List Gray 7', 'stp-darkmode'],
-                  ['Step List Gray 7 Gold Counter', 'stp-darkmode-gold']
+                  ['Step List Black', 'stp-darkmode'],
+                  ['Step List Black Gold Counter', 'stp-darkmode-gold']
                 ],
                 setup: function (element) {
                   // Always default to default.
