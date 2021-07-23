@@ -33,7 +33,7 @@ CKEDITOR.plugins.add('websparkhighlightedheading', {
                   this.data.headingcolor = "highlight-white";
                 }
                 // Get heading type
-                this.data.headingtype = jQuery('h1,h2,h3,h4,h5', $el).prop("tagName").toLowerCase();
+                this.data.headingtype = jQuery('h1,h2,h3,h4', $el).prop("tagName").toLowerCase();
                 // Get text
                 if (editor.getSelection()) {
                     this.data.content = editor.getSelection().getSelectedText();
@@ -50,7 +50,7 @@ CKEDITOR.plugins.add('websparkhighlightedheading', {
                 }
                 
                 if (this.data.headingtype) {
-                    $el.html('<' + this.data.headingtype + '>' + jQuery('h1,h2,h3,h4,h5', $el).html() + '</' + this.data.headingtype + '>' );
+                    $el.html('<' + this.data.headingtype + '>' + jQuery('h1,h2,h3,h4', $el).html() + '</' + this.data.headingtype + '>' );
                 }
 
                 if (this.data.content) {

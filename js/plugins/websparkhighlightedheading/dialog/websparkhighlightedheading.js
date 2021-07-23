@@ -54,7 +54,6 @@ CKEDITOR.dialog.add('websparkhighlightedheading', function (editor) {
                                     ['H2', 'h2'],
                                     ['H3', 'h3'],
                                     ['H4', 'h4'],
-                                    ['H5', 'h5'],
                                 ],
                                 setup: function (widget) {
                                     this.setValue(widget.data.headingtype || 'h1');
