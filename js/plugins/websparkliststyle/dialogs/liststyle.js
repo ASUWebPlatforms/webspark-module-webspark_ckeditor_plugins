@@ -51,8 +51,7 @@
                 ['Icon list Black Gold', 'icn-darkmode-gold']
               ],
               setup: function (element) {
-                // Always default to default.
-                this.setValue('default-list');
+                this.setValue(getKeyClass(element));
               },
               commit: function (element) {
                 // Get select value.
@@ -62,6 +61,10 @@
                   editor.showNotification( 'Cannot apply more than one style to multi level list' );
                   return;
                 }
+
+                // Add class to be identified from.
+                removeKeyClass(element);
+                element.addClass("wp-" + value);
 
                 if (value == '') {
                   value = 'default-list';
@@ -197,8 +200,7 @@
                   ['Step List Black Gold Counter', 'stp-darkmode-gold']
                 ],
                 setup: function (element) {
-                  // Always default to default.
-                  this.setValue('default-list');
+                  this.setValue(getKeyClass(element));
                 },
                 commit: function (element) {
                   // Get select value.
@@ -213,6 +215,10 @@
                   if (value == '') {
                     value = 'default-list';
                   }
+
+                  // Add class to be identified from.
+                  removeKeyClass(element);
+                  element.addClass("wp-" + value);
 
                   // If value starts with stp its a step value.
                   if (value.startsWith('stp')) {
@@ -411,6 +417,26 @@
         }
       };
     }
+  }
+
+  function getKeyClass(element) {
+    var classList = element.$.className.split(' ');
+    var defaultValue = 'default-list';
+    classList.forEach(function(className) {
+      if (className.startsWith("wp-")) {
+        defaultValue = className.substring(3);
+      }
+    });
+    return defaultValue;
+  }
+
+  function removeKeyClass(element) {
+    var classList = element.$.className.split(' ');
+    classList.forEach(function(className) {
+      if (className.startsWith("wp-")) {
+        element.removeClass(className);
+      }
+    });
   }
 
   CKEDITOR.dialog.add('numberedListStyle', function (editor) {
