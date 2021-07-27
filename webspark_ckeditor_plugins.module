@@ -9,6 +9,28 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 
 /**
+ * 
+ * Implements hook_form_FORM_ID_alter().
+ * 
+ * Removes the caption option from remote video.
+ * @TODO: Remove when the caption work on remote video.
+ */
+function webspark_ckeditor_plugins_form_editor_media_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $storage = $form_state->getStorage();
+  if ($storage) {
+    $uuid = $storage['media_embed_element']['data-entity-uuid'] ?? NULL;
+    if (!empty($uuid)) {
+      $type = $storage['media_embed_element']['data-entity-type'];
+      $media = \Drupal::service('entity.repository')->loadEntityByUuid($type, $uuid);
+      
+      if ($media->bundle() == 'remote_video') {
+        $form['caption']['#access'] = FALSE;
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  *
  * Note: the editor_file module declares that its
