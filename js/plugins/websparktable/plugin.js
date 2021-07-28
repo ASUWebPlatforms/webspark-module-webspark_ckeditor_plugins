@@ -36,7 +36,7 @@ CKEDITOR.plugins.add('websparkTable', {
         // Remove the default behaviour
         infoTab.remove('cellType');
         var $element = {
-          id: 'type',
+          id: 'cellType',
           type: 'select',
           label: 'Cell Type',
           items: [
