@@ -24,7 +24,7 @@
                     ['Button Gold', 'btn-gold'],
                     ['Button Maroon', 'btn-maroon'],
                     ['Button Gray', 'btn-gray'],
-                    ['Button Dark', 'btn-dark'],
+                    ['Button Black', 'btn-dark'],
                   ],
                   setup: function (widget) {
                     this.setValue(widget.data.btntype || 'btn-gold');
