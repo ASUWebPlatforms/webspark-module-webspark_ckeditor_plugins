@@ -75,19 +75,6 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
             commit: commitValue
           },
           {
-            id: 'type',
-            type: 'select',
-            label: 'Table Type',
-            items: [
-              [ 'Default', 'default' ],
-              [ 'Fixed', 'fixed' ]
-            ],
-            setup: function( element ) {
-              this.setValue('default');
-            },
-            commit: commitValue
-          },
-          {
             id: 'headers',
             type: 'select',
             label: 'Headers',
@@ -99,6 +86,19 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
             ],
             setup: function( element ) {
               this.setValue('none');
+            },
+            commit: commitValue
+          },
+          {
+            id: 'type',
+            type: 'select',
+            label: 'Table Type',
+            items: [
+              [ 'Default', 'default' ],
+              [ 'Fixed', 'fixed' ]
+            ],
+            setup: function( element ) {
+              this.setValue('default');
             },
             commit: commitValue
           }

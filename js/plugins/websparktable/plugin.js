@@ -65,6 +65,7 @@ CKEDITOR.plugins.add('websparkTable', {
             if (this.getValue() == 'td' || this.getValue() == 'th') {
               element.renameNode(this.getValue());
             } else {
+              element.renameNode('th');
               element.addClass(this.getValue());
             }
 
