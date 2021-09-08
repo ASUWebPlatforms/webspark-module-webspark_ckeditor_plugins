@@ -25,6 +25,23 @@ CKEDITOR.plugins.add('websparkTable', {
 
     });
 
+    // Add a trigger when the menu is hidden.
+    editor.contextMenu._.onHide = function () {
+      editor.fire( 'menuHide' );
+    }
+
+    // On contextual menu (right click) show, make it impossible to scroll.
+    editor.on('menuShow', function (data) {
+      jQuery("body").css("overflow", "hidden");
+      jQuery("#drupal-off-canvas").css("overflow", "hidden");
+    });
+
+    // On contextual menu (right click) hide return to normal scrolling.
+    editor.on('menuHide', function (data) {
+      jQuery("#drupal-off-canvas").css("overflow", "auto");
+      jQuery("body").css("overflow", "auto");
+    });
+
     CKEDITOR.on('dialogDefinition', function (ev) {
       // Take the dialog name and its definition from the event data.
       var dialogName = ev.data.name;
