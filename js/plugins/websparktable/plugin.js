@@ -99,6 +99,7 @@ CKEDITOR.plugins.add('websparkTable', {
 
         // Remove the Caption from the default table icon
         infoTab.remove('txtCaption');
+        infoTab.remove('type');
         var $element = {
           id: 'type',
           type: 'select',
