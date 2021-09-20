@@ -83,8 +83,22 @@
 
          }
       });
-    },
 
+
+      // The first time we create list we need to add the uds-list class on them.
+      CKEDITOR.on( 'instanceReady', function( evt ) {
+        evt.editor.on( 'afterCommandExec', function ( event ) {
+          if( event.data.name == 'bulletedlist' || event.data.name == 'numberedlist' ) {
+            var s = editor.getSelection();
+            var list = s.getStartElement().getParent();
+            var element_name = list.getName();
+            if (element_name === 'ol' ||  element_name === 'ul') {
+              list.addClass('uds-list');
+            }
+          }
+        })
+      });
+    },
   };
 
   CKEDITOR.plugins.add( 'liststyle', CKEDITOR.plugins.liststyle );
