@@ -23,8 +23,8 @@
                   items: [
                     ['Button Gold', 'btn-gold'],
                     ['Button Maroon', 'btn-maroon'],
-                    ['Button Gray', 'btn-gray'],
-                    ['Button Black', 'btn-dark'],
+                    ['Button Gray 2', 'btn-gray'],
+                    ['Button Gray 7', 'btn-dark'],
                   ],
                   setup: function (widget) {
                     this.setValue(widget.data.btntype || 'btn-gold');
