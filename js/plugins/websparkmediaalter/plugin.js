@@ -20,7 +20,7 @@
 
     afterInit: function (editor) {
       editor.on('saveSnapshot', function (event) {
-        document.querySelectorAll('iframe').forEach((iframe) => {
+        document.querySelectorAll('iframe.cke_wysiwyg_frame').forEach((iframe) => {
           iframe.contentWindow.document.querySelectorAll('figure').forEach((fig) => {
             if (fig.querySelector('iframe')) {
               // Set the figure to 100% width.
