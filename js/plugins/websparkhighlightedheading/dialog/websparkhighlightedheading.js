@@ -35,7 +35,7 @@ CKEDITOR.dialog.add('websparkhighlightedheading', function (editor) {
                                 label: 'Style',
                                 items: [
                                     ['Gold Highlight', 'highlight-gold'],
-                                    ['Black Highlight', 'highlight-black'],
+                                    ['Gray 7 Highlight', 'highlight-black'],
                                     ['White Highlight', 'highlight-white'],
                                 ],
                                 setup: function (widget) {
