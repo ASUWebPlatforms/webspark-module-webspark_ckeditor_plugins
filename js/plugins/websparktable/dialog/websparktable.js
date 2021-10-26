@@ -63,12 +63,23 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
               // this.setValue(selectedElement.$.rows.length);
             },
             commit: commitValue
-          }, {
+          },
+          {
             type: 'text',
             id: 'txtCols',
             'default': 2,
             label: "Columns",
             required: true,
+            setup: function (selectedTable) {
+              // this.setValue(tableColumns(selectedTable));
+            },
+            commit: commitValue
+          },
+          {
+            type: 'text',
+            id: 'txtCaption',
+            label: 'Caption',
+            required: false,
             setup: function (selectedTable) {
               // this.setValue(tableColumns(selectedTable));
             },
@@ -107,8 +118,8 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
     ],
     buttons: [CKEDITOR.dialog.okButton]
   };
-  
- 
+
+
 
   /**
    * Generates the DOM table.
@@ -120,8 +131,9 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
   function buildTable(data) {
     let rows = parseInt(data.txtRows, 10) || 1;
     let cols = parseInt(data.txtCols, 10) || 1;
+    let caption = data.txtCaption || '';
     let headers = data.headers;
-    
+
     let wrapper = new CKEDITOR.dom.element("div");
     wrapper.addClass('uds-table');
     if (data.type === 'fixed') {
@@ -130,7 +142,14 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
 
     let table = new CKEDITOR.dom.element("table");
     table.addClass('cke_show_border');
-    
+
+    if (caption) {
+      let captionEl = new CKEDITOR.dom.element('caption');
+      captionEl.appendText(caption);
+      table.append(captionEl);
+    }
+
+    let = new CKEDITOR.dom.element("tbody");
     let body = new CKEDITOR.dom.element("tbody");
     let header = new CKEDITOR.dom.element("thead");
 
@@ -147,7 +166,7 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
         }
         $row.append($col);
       }
-      
+
       if (i === 0 && (headers === 'row' || headers === 'both')) {
         header.append($row);
         table.append(header);
@@ -158,12 +177,12 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
 
     }
     table.append(body);
-    
+
     wrapper.append(table);
 
     return wrapper;
   }
 
 
-  
+
 });
