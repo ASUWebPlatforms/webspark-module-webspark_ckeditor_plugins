@@ -70,8 +70,8 @@ class WebsparkMediaAlter extends PluginBase implements CKEditorPluginInterface, 
    * {@inheritdoc}
    */
   public function isEnabled(Editor $editor) {
-
-    return TRUE;
+    $format = $editor->getFilterFormat();
+    return ($format && $format->id() === 'minimal_format') ? FALSE : TRUE;
   }
 
 }
