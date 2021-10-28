@@ -70,8 +70,34 @@ class WebsparkMediaAlter extends PluginBase implements CKEditorPluginInterface, 
    * {@inheritdoc}
    */
   public function isEnabled(Editor $editor) {
-    $format = $editor->getFilterFormat();
-    return ($format && $format->id() === 'minimal_format') ? FALSE : TRUE;
+    // Check if a DrupalMediaLibrary has been placed in the CKeditor.
+    $settings = $editor->getSettings();
+    if ($this->checkMediaLibraryEnable($settings['toolbar']['rows'][0])) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Check if a DrupalMediaLibrary exists in the given toolbar row.
+   *
+   * @param array $toolbar
+   *   A CKeditor toolbar row containing Ckeditor plugin items.
+   *
+   * @return bool
+   *   Does the DrupalMediaLibrary has been placed in the CKeditor.
+   */
+  protected function checkMediaLibraryEnable(array $toolbar) {
+    foreach ($toolbar as $items) {
+      foreach ($items['items'] as $item) {
+        if ('DrupalMediaLibrary' === $item) {
+          return TRUE;
+        }
+      }
+    }
+
+    return FALSE;
   }
 
 }
