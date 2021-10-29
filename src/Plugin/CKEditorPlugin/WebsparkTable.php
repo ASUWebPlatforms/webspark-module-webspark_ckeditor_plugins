@@ -26,31 +26,10 @@ class WebsparkTable extends CKEditorPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function getLibraries(Editor $editor) {
-    return [];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getConfig(Editor $editor) {
     return [];
   }
 
-  /**
-  * {@inheritdoc}
-  */
-  public function getDependencies(Editor $editor) {
-    
-  }
-
-  /**
-  * {@inheritdoc}
-  */
-  public function isInternal() {
-    
-  }
-  
   /**
    * {@inheritdoc}
    */
