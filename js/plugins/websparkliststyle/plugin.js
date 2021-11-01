@@ -89,7 +89,7 @@
       CKEDITOR.on( 'instanceReady', function( evt ) {
         evt.editor.on( 'afterCommandExec', function ( event ) {
           if( event.data.name == 'bulletedlist' || event.data.name == 'numberedlist' ) {
-            var s = editor.getSelection();
+            var s = evt.editor.getSelection();
             var list = s.getStartElement().getParent();
             var element_name = list.getName();
             if (element_name === 'ol' ||  element_name === 'ul') {
