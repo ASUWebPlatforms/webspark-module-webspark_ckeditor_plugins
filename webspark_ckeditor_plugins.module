@@ -136,7 +136,7 @@ function webspark_ckeditor_plugins_form_editor_image_dialog_alter(&$form, FormSt
   $form['attributes']['round'] = [
     '#type' => 'checkbox',
     '#title' => t('Round image.'),
-    '#description' => 'Make the image a round circle',
+    '#description' => 'Round the image corners.',
     '#default_value' => $get_default_value('round') ? $get_default_value('round') : 0,
     '#access' => $is_accessible('class'),
     '#group'         => 'advanced',
