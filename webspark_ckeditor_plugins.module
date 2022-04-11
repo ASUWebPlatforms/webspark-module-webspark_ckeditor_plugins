@@ -163,3 +163,13 @@ function _webspark_ckeditor_plugins_attributes_validate(array &$form, FormStateI
     }
   }
 }
+
+/**
+ * Load the css library for all pages
+ */
+function webspark_ckeditor_plugins_page_attachments(array &$page) {
+  if (!\Drupal::currentUser()->hasPermission('access contextual links')) {
+    return;
+  }
+  $page['#attached']['library'][] = 'webspark_ckeditor_plugins/webspark.ckeditor.plugins';
+}
