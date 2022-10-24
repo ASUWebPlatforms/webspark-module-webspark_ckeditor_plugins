@@ -20,7 +20,7 @@ class WebsparkTable extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getFile() {
-    return drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparktable/plugin.js';
+    return \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparktable/plugin.js';
   }
 
   /**
@@ -34,7 +34,7 @@ class WebsparkTable extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getButtons() {
-    $path = drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparktable';
+    $path = \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparktable';
     return [
       'WebsparkTable' => [
         'label' => t('Webspark table plugin'),

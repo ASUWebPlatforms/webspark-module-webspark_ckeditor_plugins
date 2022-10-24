@@ -20,7 +20,7 @@ class WebsparkBlockquote extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getFile() {
-    return drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparkblockquote/plugin.js';
+    return \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparkblockquote/plugin.js';
   }
 
   /**
@@ -41,7 +41,7 @@ class WebsparkBlockquote extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getButtons() {
-    $path = drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparkblockquote';
+    $path = \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparkblockquote';
     return [
       'WebsparkBlockquote' => [
         'label' => t('ASU Web Standards Blockquote '),
