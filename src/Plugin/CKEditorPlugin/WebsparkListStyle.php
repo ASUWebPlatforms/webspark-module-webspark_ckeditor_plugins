@@ -72,7 +72,7 @@ class WebsparkListStyle extends PluginBase implements CKEditorPluginInterface, C
     $plugin = FALSE;
 
     // Get plugin path.
-    $plugin_path = drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparkliststyle/plugin.js';
+    $plugin_path = \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparkliststyle/plugin.js';
 
     if (file_exists(DRUPAL_ROOT . '/' . $plugin_path)) {
       $plugin = $plugin_path;

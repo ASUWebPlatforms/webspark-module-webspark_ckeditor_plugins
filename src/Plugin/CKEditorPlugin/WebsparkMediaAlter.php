@@ -45,7 +45,7 @@ class WebsparkMediaAlter extends PluginBase implements CKEditorPluginInterface, 
    * {@inheritdoc}
    */
   public function getFile() {
-    return drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/' . $this->getPluginId() . '/plugin.js';
+    return \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/' . $this->getPluginId() . '/plugin.js';
   }
 
   /**

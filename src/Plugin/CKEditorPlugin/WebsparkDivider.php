@@ -20,7 +20,7 @@ class WebsparkDivider extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getFile() {
-    return drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparkdivider/plugin.js';
+    return \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparkdivider/plugin.js';
   }
 
   /**
@@ -41,7 +41,7 @@ class WebsparkDivider extends CKEditorPluginBase {
    * {@inheritdoc}
    */
   public function getButtons() {
-    $path = drupal_get_path('module', 'webspark_ckeditor_plugins') . '/js/plugins/websparkdivider';
+    $path = \Drupal::service('extension.list.module')->getPath('webspark_ckeditor_plugins') . '/js/plugins/websparkdivider';
     return [
       'WebsparkDivider' => [
         'label' => t('Divider'),
