@@ -101,14 +101,24 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
               this.setValue('default');
             },
             commit: commitValue
-          }
+          },
+          {
+            type: 'text',
+            id: 'txtCaption',
+            label: 'Caption',
+            required: false,
+            setup: function (selectedTable) {
+              // this.setValue(tableColumns(selectedTable));
+            },
+            commit: commitValue
+          },
         ]
       }
     ],
     buttons: [CKEDITOR.dialog.okButton]
   };
-  
- 
+
+
 
   /**
    * Generates the DOM table.
@@ -121,7 +131,8 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
     let rows = parseInt(data.txtRows, 10) || 1;
     let cols = parseInt(data.txtCols, 10) || 1;
     let headers = data.headers;
-    
+    let caption = data.txtCaption || '';
+
     let wrapper = new CKEDITOR.dom.element("div");
     wrapper.addClass('uds-table');
     if (data.type === 'fixed') {
@@ -130,7 +141,13 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
 
     let table = new CKEDITOR.dom.element("table");
     table.addClass('cke_show_border');
-    
+
+    if (caption) {
+      let captionEl = new CKEDITOR.dom.element('caption');
+      captionEl.appendText(caption);
+      table.append(captionEl);
+    }
+
     let body = new CKEDITOR.dom.element("tbody");
     let header = new CKEDITOR.dom.element("thead");
 
@@ -147,7 +164,7 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
         }
         $row.append($col);
       }
-      
+
       if (i === 0 && (headers === 'row' || headers === 'both')) {
         header.append($row);
         table.append(header);
@@ -158,12 +175,12 @@ CKEDITOR.dialog.add('websparktable', function (editor) {
 
     }
     table.append(body);
-    
+
     wrapper.append(table);
 
     return wrapper;
   }
 
 
-  
+
 });
